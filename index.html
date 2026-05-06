@@ -606,6 +606,11 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+if (window.location.hash) {
+  var _intro = document.getElementById('intro');
+  if (_intro) _intro.style.display = 'none';
+}
+
 const AudioManager = (() => {
   const list = [];
   function register(el, sec) {
@@ -677,9 +682,10 @@ document.addEventListener('click', e => { if(!e.target.closest('#nav')) closeMen
 
 // Init
 if (window.location.hash) {
-  dismissIntro();
+  clearTimeout(introTimer);
+  document.body.style.overflow = '';
   const target = document.querySelector(window.location.hash);
-  if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 100);
+  if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 150);
 } else {
   document.body.style.overflow = 'hidden';
 }
