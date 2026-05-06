@@ -269,12 +269,12 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 
 <!-- INTRO -->
 <div id="intro">
-  <p class="intro-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría</p>
+  <p class="intro-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata</p>
   <h2 class="intro-title">Me Declaro<br>Paisaje</h2>
   <p class="intro-sub">María Virginia Maldonado</p>
   <div class="intro-play" onclick="startAudio()">
     <div class="play-ring"><div class="play-icon"></div></div>
-    <span>Escuchar a Virginia</span>
+    <span>Cecilia Canepa – Curadora</span>
   </div>
   <button class="intro-skip" onclick="skipAudio()">Explorar sin audio</button>
   <div class="intro-line"></div>
@@ -319,7 +319,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="hs-bg" style="background-image:url('fotos/foto-01.jfif')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
-          <p class="hs-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría &thinsp;·&thinsp; 2024</p>
+          <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
           <h2 class="hs-title">La Muestra</h2>
           <p class="hs-name">María Virginia Maldonado</p>
         </div>
@@ -328,7 +328,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="hs-bg" style="background-image:url('fotos/foto-02.jpeg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
-          <p class="hs-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría &thinsp;·&thinsp; 2024</p>
+          <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
           <h2 class="hs-title">Sala 2</h2>
           <p class="hs-name">María Virginia Maldonado</p>
         </div>
@@ -337,7 +337,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="hs-bg" style="background-image:url('fotos/foto-03.jpeg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
-          <p class="hs-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría &thinsp;·&thinsp; 2024</p>
+          <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
           <h2 class="hs-title">Veintipico<br>de bolsas</h2>
           <p class="hs-name">María Virginia Maldonado</p>
         </div>
@@ -346,7 +346,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="hs-bg" style="background-image:url('fotos/foto-04.jpeg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
-          <p class="hs-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría &thinsp;·&thinsp; 2024</p>
+          <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
           <h2 class="hs-title">El Proceso</h2>
           <p class="hs-name">María Virginia Maldonado</p>
         </div>
@@ -355,7 +355,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="hs-bg" style="background-image:url('fotos/foto-05.jpeg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
-          <p class="hs-eye">Museo Municipal Dámaso Arce &thinsp;·&thinsp; Olavarría &thinsp;·&thinsp; 2024</p>
+          <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
           <h2 class="hs-title">La Artista</h2>
           <p class="hs-name">María Virginia Maldonado</p>
         </div>
@@ -545,7 +545,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 <!-- FOOTER -->
 <footer>
   <span class="ft-brand">Virginia Maldonado</span>
-  <span class="ft-info">Me Declaro Paisaje &middot; 2024<br>Museo Dámaso Arce &middot; Olavarría</span>
+  <span class="ft-info">Me Declaro Paisaje &middot; 2024<br>MACLA – La Plata</span>
 </footer>
 
 <!-- WHATSAPP FLOTANTE -->
@@ -584,9 +584,10 @@ const pPlay  = document.getElementById('p-play-icon');
 const pPause = document.getElementById('p-pause-icon');
 AudioManager.register(audio, document.getElementById('hero'));
 
-function startAudio(){ audio.play().catch(()=>{}); dismissIntro(); player.classList.add('show'); setPS(true); }
-function skipAudio(){ dismissIntro(); }
-function dismissIntro(){ intro.classList.add('gone'); document.body.style.overflow=''; }
+let introTimer = setTimeout(() => { dismissIntro(); document.getElementById('muestra').scrollIntoView({behavior:'smooth'}); }, 15000);
+function startAudio(){ clearTimeout(introTimer); audio.play().catch(()=>{}); dismissIntro(); player.classList.add('show'); setPS(true); }
+function skipAudio(){ clearTimeout(introTimer); dismissIntro(); }
+function dismissIntro(){ clearTimeout(introTimer); intro.classList.add('gone'); document.body.style.overflow=''; }
 function toggleAudio(){ audio.paused ? (audio.play(), setPS(true)) : (audio.pause(), setPS(false)); }
 function setPS(p){ pPlay.style.display=p?'none':'block'; pPause.style.display=p?'flex':'none'; waves.classList.toggle('paused',!p); }
 function closePlayer(){ audio.pause(); player.classList.remove('show'); }
@@ -640,6 +641,7 @@ const heroSwiper = new Swiper('#heroSwiper', {
   effect: 'fade',
   fadeEffect: { crossFade: true },
   loop: true,
+  initialSlide: 0,
   speed: 900,
   autoplay: { delay: 4000, disableOnInteraction: false },
   navigation: { prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' },
