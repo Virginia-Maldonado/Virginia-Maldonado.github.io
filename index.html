@@ -534,7 +534,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
   <div class="wrap">
     <div class="art-grid">
       <div class="art-photo fade">
-        <img src="foto%20perfil/foto%20perfil.jpg" alt="Virginia Maldonado">
+        <img src="fotos/foto-perfil.jpg" alt="Virginia Maldonado">
       </div>
       <div class="fade">
         <p class="label">La artista</p>
@@ -727,6 +727,8 @@ function revealInView(){
     if(r.bottom>0&&r.top<window.innerHeight)el.classList.add('in');
   });
 }
+let _ft;
+window.addEventListener('scroll',()=>{clearTimeout(_ft);_ft=setTimeout(revealInView,120);},{passive:true});
 window.addEventListener('hashchange',()=>setTimeout(revealInView,700));
 
 // Lightbox
