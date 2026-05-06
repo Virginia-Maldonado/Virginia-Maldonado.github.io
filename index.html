@@ -27,6 +27,7 @@ button{cursor:pointer;border:none;background:none}
 }
 
 html{scroll-behavior:smooth}
+section{scroll-margin-top:64px}
 body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--ink);background:var(--cream);overflow-x:hidden}
 .wrap{max-width:1160px;margin:0 auto;padding:0 2.5rem}
 
@@ -131,7 +132,7 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 .art-bio p{color:var(--muted);line-height:1.95;margin-bottom:1.3rem}
 
 /* CONTACTO */
-#contacto{padding:var(--pad) 0;background:var(--cream2);text-align:center}
+#contacto{padding:var(--pad) 0;background:var(--cream2);text-align:center;min-height:100vh}
 #contacto h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(2rem,3.2vw,2.8rem);margin-bottom:.8rem}
 .contact-sub{color:var(--muted);font-size:.9rem;margin-bottom:3.5rem}
 #contacto .label{justify-content:center}
@@ -719,6 +720,14 @@ const fadeIO = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); fadeIO.unobserve(e.target); } });
 }, {threshold:0.11});
 document.querySelectorAll('.fade').forEach(el => fadeIO.observe(el));
+
+function revealInView(){
+  document.querySelectorAll('.fade:not(.in)').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.bottom>0&&r.top<window.innerHeight)el.classList.add('in');
+  });
+}
+window.addEventListener('hashchange',()=>setTimeout(revealInView,700));
 
 // Lightbox
 const imgs = [
