@@ -221,6 +221,14 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 @media(max-width:900px){.sec-swiper .swiper-slide img{height:320px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
 @media(max-width:580px){.sec-swiper .swiper-slide img{height:230px}}
 
+/* SEC-HERO */
+.sec-hero{position:relative;overflow:hidden}
+.sec-hero img{width:100%;height:100%;object-fit:cover}
+.sec-hero-veil{position:absolute;inset:0;background:rgba(18,9,3,.45)}
+.sec-hero-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem;color:#fff}
+.sec-hero-text .label{color:rgba(255,255,255,.65)}
+.sec-hero-text h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(1.8rem,3vw,2.8rem);color:#fff}
+
 /* LIGHTBOX */
 #lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(12,6,2,.96);align-items:center;justify-content:center}
 #lb.on{display:flex}
@@ -678,31 +686,6 @@ const heroSwiper = new Swiper('#heroSwiper', {
   navigation: { prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' },
 });
 
-// Section Swipers — talsstudio style
-['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  new Swiper(el, {
-    loop: true,
-    slidesPerView: 1.2,
-    centeredSlides: true,
-    spaceBetween: 16,
-    pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-  });
-});
-// Veintipico (layout fijo, sin peek)
-const veinEl = document.getElementById('swiperVein');
-if (veinEl) new Swiper(veinEl, {
-  loop: true,
-  slidesPerView: 1,
-  spaceBetween: 16,
-  pagination: { el: veinEl.querySelector('.swiper-pagination'), clickable: true },
-});
-// Lazy fade en imágenes de sección
-document.querySelectorAll('.sec-swiper img').forEach(img => {
-  if (img.complete) img.classList.add('img-loaded');
-  else img.addEventListener('load', () => img.classList.add('img-loaded'));
-});
 
 // Slide click → scroll to section
 document.querySelectorAll('.hero-slide').forEach(slide => {
