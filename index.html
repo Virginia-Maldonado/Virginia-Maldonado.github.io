@@ -204,6 +204,18 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 #p-close{font-size:.8rem;color:rgba(255,255,255,.25);line-height:1;padding:0 .2rem;transition:color .3s}
 #p-close:hover{color:rgba(255,255,255,.6)}
 
+/* SECTION SWIPERS */
+.sec-swiper{width:100%;margin-top:2.5rem;position:relative;overflow:hidden}
+.sec-swiper .swiper-slide img{width:100%;height:520px;object-fit:cover;display:block}
+.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:56px;height:56px;background:rgba(246,241,231,.96);border-radius:50%;color:var(--brown);--swiper-navigation-size:22px;box-shadow:0 2px 18px rgba(0,0,0,.2);transition:background .25s,color .25s,transform .25s}
+.sec-swiper .swiper-button-prev:hover,.sec-swiper .swiper-button-next:hover{background:#fff;color:var(--terra);transform:scale(1.07)}
+#proceso .sec-swiper .swiper-button-prev,#proceso .sec-swiper .swiper-button-next{background:rgba(50,35,20,.88);color:var(--ochre)}
+#proceso .sec-swiper .swiper-button-prev:hover,#proceso .sec-swiper .swiper-button-next:hover{background:rgba(80,56,32,.95)}
+.vein-swiper{margin-top:0}
+.vein-swiper .swiper-slide img{height:auto;aspect-ratio:3/4}
+@media(max-width:900px){.sec-swiper .swiper-slide img{height:340px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
+@media(max-width:580px){.sec-swiper .swiper-slide img{height:240px}.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:44px;height:44px;--swiper-navigation-size:17px}}
+
 /* LIGHTBOX */
 #lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(12,6,2,.96);align-items:center;justify-content:center}
 #lb.on{display:flex}
@@ -389,20 +401,23 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
       <div class="ac-waves paused"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <p class="curador-line fade">Cecilia Canepa – Curadora</p>
-    <div class="gal-grid">
-      <div class="gi" onclick="lb(0)"><img src="fotos/foto-02.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(1)"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(2)"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(3)"><img src="fotos/foto-07.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(4)"><img src="fotos/foto-08.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(5)"><img src="fotos/foto-10.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(6)"><img src="fotos/foto-11.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(7)"><img src="fotos/foto-13.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(8)"><img src="fotos/foto-14.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(9)"><img src="fotos/foto-15.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(10)"><img src="fotos/foto-16.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(11)"><img src="fotos/foto-17.jpeg" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
-      <div class="gi" onclick="lb(12)"><img src="fotos/foto-01.jfif" alt="" loading="lazy"><div class="gi-over"><div class="gi-plus">+</div></div></div>
+    <div class="swiper sec-swiper" id="swiperMustra">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="fotos/foto-02.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-07.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-08.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-10.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-11.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-13.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-14.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-15.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-16.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-17.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-01.jfif" alt="" loading="lazy"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 </section>
@@ -425,13 +440,17 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
       </div>
       <div class="ac-waves paused"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
-    <div class="s2-grid">
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM.jpeg" alt="" loading="lazy"></div>
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM.jpeg" alt="" loading="lazy"></div>
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.39%20AM.jpeg" alt="" loading="lazy"></div>
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM.jpeg" alt="" loading="lazy"></div>
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
-      <div class="si fade"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%282%29.jpeg" alt="" loading="lazy"></div>
+    <div class="swiper sec-swiper" id="swiperSala2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.39%20AM.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%282%29.jpeg" alt="" loading="lazy"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 </section>
@@ -445,7 +464,14 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <h2 class="fade">Veintipico de bolsas</h2>
     <div class="vein-grid">
       <div class="vein-img fade">
-        <img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM%20%281%29.jpeg" alt="Veintipico de bolsas" loading="lazy">
+        <div class="swiper sec-swiper vein-swiper" id="swiperVein">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM%20%281%29.jpeg" alt="Veintipico de bolsas" loading="lazy"></div>
+            <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
       <div class="fade">
         <span class="vein-sub">Instalación &middot; Tintes naturales sobre tela</span>
@@ -477,13 +503,17 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <p class="label fade">El proceso</p>
     <h2 class="fade">La materia como lenguaje</h2>
     <p class="proc-sub fade">Moras, yerba, cáscaras, polvo de ocre. Todo lo que la tierra da se convierte en color.</p>
-    <div class="proc-grid">
-      <div class="pi fade"><img src="fotos/foto-03.jpeg" alt="" loading="lazy"></div>
-      <div class="pi fade"><img src="fotos/foto-05.jpeg" alt="" loading="lazy"></div>
-      <div class="pi fade"><img src="fotos/foto-09.jpeg" alt="" loading="lazy"></div>
-      <div class="pi fade"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
-      <div class="pi fade"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
-      <div class="pi fade"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
+    <div class="swiper sec-swiper" id="swiperProceso">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="fotos/foto-03.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-05.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-09.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 </section>
@@ -645,6 +675,19 @@ const heroSwiper = new Swiper('#heroSwiper', {
   speed: 900,
   autoplay: { delay: 4000, disableOnInteraction: false },
   navigation: { prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' },
+});
+
+// Section Swipers
+['swiperMustra','swiperSala2','swiperVein','swiperProceso'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new Swiper(el, {
+    loop: true,
+    navigation: {
+      prevEl: el.querySelector('.swiper-button-prev'),
+      nextEl: el.querySelector('.swiper-button-next'),
+    },
+  });
 });
 
 // Slide click → scroll to section
