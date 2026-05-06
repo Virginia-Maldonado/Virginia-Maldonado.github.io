@@ -67,6 +67,8 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 .hs-name{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.72}
 .swiper-button-prev,.swiper-button-next{--swiper-navigation-size:16px;color:rgba(255,255,255,.5);width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;transition:color .3s,border-color .3s,background .3s}
 .swiper-button-prev:hover,.swiper-button-next:hover{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.07)}
+.sec-arrow{background:rgba(246,241,231,.92)!important;border:1px solid rgba(107,85,64,.3)!important;border-radius:50%!important;width:40px!important;height:40px!important;color:var(--brown)!important;--swiper-navigation-size:13px;backdrop-filter:blur(6px);transition:background .3s,border-color .3s,color .3s!important}
+.sec-arrow:hover{background:var(--cream2)!important;border-color:var(--brown)!important;color:var(--ink)!important}
 .hero-caret{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.55rem;cursor:pointer;opacity:.6;transition:opacity .3s;z-index:10}
 .hero-caret:hover{opacity:1}
 .hero-caret span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#fff}
@@ -169,7 +171,10 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 @keyframes wave{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.6)}}
 
 /* INTRO OVERLAY */
-#intro{position:fixed;inset:0;z-index:999;background:url('fotos/1A.jpg') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .7s ease,visibility .7s ease}
+#intro{position:fixed;inset:0;z-index:999;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .7s ease,visibility .7s ease}
+#intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
+#intro::before{z-index:1}
+#intro>*:not(#intro-video){position:relative;z-index:2}
 #intro::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.4);z-index:-1}
 #intro.gone{opacity:0;visibility:hidden;pointer-events:none}
 .intro-eye{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.5rem}
@@ -294,6 +299,9 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 
 <!-- INTRO -->
 <div id="intro">
+  <video id="intro-video" autoplay muted loop playsinline>
+    <source src="video-inicio.mp4" type="video/mp4">
+  </video>
   <p class="intro-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata</p>
   <h2 class="intro-title">Me Declaro<br>Paisaje</h2>
   <p class="intro-sub">María Virginia Maldonado</p>
@@ -304,6 +312,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
   <button class="intro-skip" onclick="skipAudio()">Explorar sin audio</button>
   <div class="intro-line"></div>
 </div>
+<script>if(window.location.hash){var el=document.getElementById('intro');if(el){el.style.display='none';document.body.style.overflow='';}}</script>
 
 <audio id="audio" preload="auto">
   <source src="audio/cecilia-canepa.mp3" type="audio/mpeg">
@@ -316,7 +325,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <div class="p-pause" id="p-pause-icon" style="display:none"><span></span><span></span></div>
   </button>
   <div class="p-waves" id="p-waves"><span></span><span></span><span></span><span></span><span></span></div>
-  <span class="p-label">Virginia habla</span>
+  <span class="p-label">Cecilia Canepa – Curadora</span>
   <button id="p-close" onclick="closePlayer()" aria-label="Cerrar">✕</button>
 </div>
 
@@ -430,6 +439,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-01.jfif" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev sec-arrow"></div>
+      <div class="swiper-button-next sec-arrow"></div>
     </div></div>
   </div>
 </section>
@@ -454,14 +465,14 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     </div>
     <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperSala2">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="fotos/foto-02.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-08.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-10.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/sala2-01.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/sala2-02.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/sala2-03.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/sala2-04.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev sec-arrow"></div>
+      <div class="swiper-button-next sec-arrow"></div>
     </div></div>
   </div>
 </section>
@@ -475,19 +486,11 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <h2 class="fade">Veintipico de bolsas</h2>
     <div class="vein-grid">
       <div class="vein-img fade">
-        <div class="swiper sec-swiper vein-swiper" id="swiperVein">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM%20%281%29.jpeg" alt="Veintipico de bolsas" loading="lazy"></div>
-            <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+        <img src="fotos/vein-01.jpeg" alt="Veintipico de bolsas">
       </div>
       <div class="fade">
-        <span class="vein-sub">Instalación &middot; Tintes naturales sobre tela</span>
         <div class="vein-text">
-          <p>Una pieza que reúne veintiún bolsas intervenidas con tintes naturales extraídos de plantas y frutos de la región. Cada bolsa porta una historia distinta de color, tiempo y materia.</p>
-          <p>La obra invita a pensar el descarte, el contenido y la transformación: lo que la tierra tiñe no se borra, se convierte en memoria visible.</p>
+          <p>Veintipico de bolsas parte de una pregunta simple: ¿y si la historia humana no comenzó con las armas sino con el recipiente? Inspirada en Ursula K. Le Guin y su Teoría de la bolsa, Virginia propone veintiún bolsas confeccionadas a mano como acto psicomágico — un gesto de recolección, reunión y paz. Guardar lo diminuto, lo sagrado, lo comestible, lo hermoso. Llevarlo a casa. Compartirlo. La bolsa como primer dispositivo cultural, como hogar portátil, como otra historia posible.</p>
         </div>
         <div class="audio-card" data-src="audio/veintipico.mp3">
           <button class="ac-btn" aria-label="Reproducir / Pausar">
@@ -523,6 +526,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev sec-arrow"></div>
+      <div class="swiper-button-next sec-arrow"></div>
     </div></div>
   </div>
 </section>
@@ -534,7 +539,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
   <div class="wrap">
     <div class="art-grid">
       <div class="art-photo fade">
-        <img src="foto%20perfil/foto%20perfil.jpg" alt="Virginia Maldonado">
+        <img src="fotos/foto-perfil.jpg" alt="Virginia Maldonado">
       </div>
       <div class="fade">
         <p class="label">La artista</p>
@@ -602,6 +607,11 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+if (window.location.hash) {
+  var _intro = document.getElementById('intro');
+  if (_intro) _intro.style.display = 'none';
+}
+
 const AudioManager = (() => {
   const list = [];
   function register(el, sec) {
@@ -672,7 +682,14 @@ function closeMenu(){ navToggle.classList.remove('open'); navLinks.classList.rem
 document.addEventListener('click', e => { if(!e.target.closest('#nav')) closeMenu(); });
 
 // Init
-document.body.style.overflow = 'hidden';
+if (window.location.hash) {
+  clearTimeout(introTimer);
+  document.body.style.overflow = '';
+  const target = document.querySelector(window.location.hash);
+  if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 150);
+} else {
+  document.body.style.overflow = 'hidden';
+}
 initCards();
 
 // Hero Swiper
@@ -691,12 +708,14 @@ const heroSwiper = new Swiper('#heroSwiper', {
 ['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
+  const hasNav = el.querySelector('.swiper-button-prev');
   new Swiper(el, {
     loop: true,
     slidesPerView: 1.2,
     centeredSlides: true,
     spaceBetween: 16,
     pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+    navigation: hasNav ? { prevEl: el.querySelector('.swiper-button-prev'), nextEl: el.querySelector('.swiper-button-next') } : false,
   });
 });
 const veinEl = document.getElementById('swiperVein');
@@ -727,6 +746,8 @@ function revealInView(){
     if(r.bottom>0&&r.top<window.innerHeight)el.classList.add('in');
   });
 }
+let _ft;
+window.addEventListener('scroll',()=>{clearTimeout(_ft);_ft=setTimeout(revealInView,120);},{passive:true});
 window.addEventListener('hashchange',()=>setTimeout(revealInView,700));
 
 // Lightbox
