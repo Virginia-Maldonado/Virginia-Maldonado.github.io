@@ -624,7 +624,7 @@ AudioManager.register(audio, document.getElementById('hero'));
 
 let introTimer = setTimeout(() => { dismissIntro(); document.getElementById('muestra').scrollIntoView({behavior:'smooth'}); }, 15000);
 function startAudio(){ clearTimeout(introTimer); audio.play().catch(()=>{}); dismissIntro(); player.classList.add('show'); setPS(true); }
-function skipAudio(){ clearTimeout(introTimer); dismissIntro(); }
+function skipAudio(){ clearTimeout(introTimer); dismissIntro(); document.getElementById('muestra').scrollIntoView({behavior:'smooth'}); }
 function dismissIntro(){ clearTimeout(introTimer); intro.classList.add('gone'); document.body.style.overflow=''; }
 function toggleAudio(){ audio.paused ? (audio.play(), setPS(true)) : (audio.pause(), setPS(false)); }
 function setPS(p){ pPlay.style.display=p?'none':'block'; pPause.style.display=p?'flex':'none'; waves.classList.toggle('paused',!p); }
