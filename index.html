@@ -205,16 +205,24 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 #p-close:hover{color:rgba(255,255,255,.6)}
 
 /* SECTION SWIPERS */
-.sec-swiper{width:100%;margin-top:2.5rem;position:relative;overflow:hidden}
-.sec-swiper .swiper-slide img{width:100%;height:520px;object-fit:cover;display:block}
-.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:56px;height:56px;background:rgba(246,241,231,.96);border-radius:50%;color:var(--brown);--swiper-navigation-size:22px;box-shadow:0 2px 18px rgba(0,0,0,.2);transition:background .25s,color .25s,transform .25s}
-.sec-swiper .swiper-button-prev:hover,.sec-swiper .swiper-button-next:hover{background:#fff;color:var(--terra);transform:scale(1.07)}
-#proceso .sec-swiper .swiper-button-prev,#proceso .sec-swiper .swiper-button-next{background:rgba(50,35,20,.88);color:var(--ochre)}
-#proceso .sec-swiper .swiper-button-prev:hover,#proceso .sec-swiper .swiper-button-next:hover{background:rgba(80,56,32,.95)}
-.vein-swiper{margin-top:0}
+.sec-swiper-outer{overflow:hidden;margin-top:2.5rem}
+.sec-swiper{overflow:visible;margin-top:0;width:86%;margin-left:auto;margin-right:auto;position:relative}
+.sec-swiper .swiper-slide{transition:opacity .4s}
+.sec-swiper .swiper-slide:not(.swiper-slide-active){opacity:.45}
+.sec-swiper .swiper-slide img{width:100%;height:500px;object-fit:cover;display:block}
+.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:52px;height:52px;background:rgba(246,241,231,.97);border-radius:50%;color:var(--brown);--swiper-navigation-size:20px;box-shadow:0 2px 18px rgba(0,0,0,.22);opacity:1}
+.sec-swiper .swiper-button-prev:hover,.sec-swiper .swiper-button-next:hover{background:#fff;color:var(--terra)}
+#proceso .sec-swiper .swiper-button-prev,#proceso .sec-swiper .swiper-button-next{background:rgba(42,28,16,.92);color:var(--ochre)}
+#proceso .sec-swiper .swiper-button-prev:hover,#proceso .sec-swiper .swiper-button-next:hover{background:rgba(70,46,26,.97)}
+.sec-swiper .swiper-pagination{position:relative;bottom:auto;margin-top:1.4rem;text-align:center}
+.sec-swiper .swiper-pagination-bullet{width:8px;height:8px;background:var(--brown);opacity:.25;margin:0 5px;transition:opacity .3s,background .3s}
+.sec-swiper .swiper-pagination-bullet-active{background:var(--ochre);opacity:1}
+#proceso .sec-swiper .swiper-pagination-bullet{background:rgba(255,255,255,.3)}
+#proceso .sec-swiper .swiper-pagination-bullet-active{background:var(--ochre);opacity:1}
+.vein-swiper{overflow:hidden;width:100%;margin-left:0;margin-right:0}
 .vein-swiper .swiper-slide img{height:auto;aspect-ratio:3/4}
-@media(max-width:900px){.sec-swiper .swiper-slide img{height:340px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
-@media(max-width:580px){.sec-swiper .swiper-slide img{height:240px}.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:44px;height:44px;--swiper-navigation-size:17px}}
+@media(max-width:900px){.sec-swiper{width:82%}.sec-swiper .swiper-slide img{height:340px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
+@media(max-width:580px){.sec-swiper{width:78%}.sec-swiper .swiper-slide img{height:250px}.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:40px;height:40px;--swiper-navigation-size:15px}}
 
 /* LIGHTBOX */
 #lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(12,6,2,.96);align-items:center;justify-content:center}
@@ -401,7 +409,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
       <div class="ac-waves paused"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <p class="curador-line fade">Cecilia Canepa – Curadora</p>
-    <div class="swiper sec-swiper" id="swiperMustra">
+    <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperMustra">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="fotos/foto-02.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"></div>
@@ -415,10 +423,10 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-16.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-17.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-01.jfif" alt="" loading="lazy"></div>
-      </div>
+      </div>      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -440,7 +448,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
       </div>
       <div class="ac-waves paused"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
-    <div class="swiper sec-swiper" id="swiperSala2">
+    <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperSala2">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM.jpeg" alt="" loading="lazy"></div>
@@ -448,10 +456,10 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%282%29.jpeg" alt="" loading="lazy"></div>
-      </div>
+      </div>      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -468,7 +476,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
           <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM%20%281%29.jpeg" alt="Veintipico de bolsas" loading="lazy"></div>
             <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
-          </div>
+          </div>          <div class="swiper-pagination"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
@@ -503,7 +511,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <p class="label fade">El proceso</p>
     <h2 class="fade">La materia como lenguaje</h2>
     <p class="proc-sub fade">Moras, yerba, cáscaras, polvo de ocre. Todo lo que la tierra da se convierte en color.</p>
-    <div class="swiper sec-swiper" id="swiperProceso">
+    <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperProceso">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="fotos/foto-03.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-05.jpeg" alt="" loading="lazy"></div>
@@ -511,10 +519,10 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
-      </div>
+      </div>      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -677,17 +685,35 @@ const heroSwiper = new Swiper('#heroSwiper', {
   navigation: { prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' },
 });
 
-// Section Swipers
-['swiperMustra','swiperSala2','swiperVein','swiperProceso'].forEach(id => {
+// Section Swipers — peek + pagination
+['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
   new Swiper(el, {
     loop: true,
+    spaceBetween: 20,
     navigation: {
       prevEl: el.querySelector('.swiper-button-prev'),
       nextEl: el.querySelector('.swiper-button-next'),
     },
+    pagination: {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true,
+    },
   });
+});
+// Veintipico swiper (constrained layout, sin peek)
+const veinEl = document.getElementById('swiperVein');
+if (veinEl) new Swiper(veinEl, {
+  loop: true,
+  navigation: {
+    prevEl: veinEl.querySelector('.swiper-button-prev'),
+    nextEl: veinEl.querySelector('.swiper-button-next'),
+  },
+  pagination: {
+    el: veinEl.querySelector('.swiper-pagination'),
+    clickable: true,
+  },
 });
 
 // Slide click → scroll to section
