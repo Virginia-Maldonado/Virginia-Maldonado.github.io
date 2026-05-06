@@ -687,6 +687,32 @@ const heroSwiper = new Swiper('#heroSwiper', {
 });
 
 
+// Section Swipers
+const secSwiperConfig = (el) => new Swiper(el, {
+  loop: true,
+  slidesPerView: 1.2,
+  centeredSlides: true,
+  spaceBetween: 16,
+  pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+  lazy: { loadPrevNext: true },
+});
+['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) secSwiperConfig(el);
+});
+const veinEl = document.getElementById('swiperVein');
+if (veinEl) new Swiper(veinEl, {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 16,
+  pagination: { el: veinEl.querySelector('.swiper-pagination'), clickable: true },
+  lazy: { loadPrevNext: true },
+});
+document.querySelectorAll('.sec-swiper img').forEach(img => {
+  if (img.complete) img.classList.add('img-loaded');
+  else img.addEventListener('load', () => img.classList.add('img-loaded'));
+});
+
 // Slide click → scroll to section
 document.querySelectorAll('.hero-slide').forEach(slide => {
   slide.addEventListener('click', () => {
