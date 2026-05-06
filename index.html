@@ -676,7 +676,13 @@ function closeMenu(){ navToggle.classList.remove('open'); navLinks.classList.rem
 document.addEventListener('click', e => { if(!e.target.closest('#nav')) closeMenu(); });
 
 // Init
-document.body.style.overflow = 'hidden';
+if (window.location.hash) {
+  dismissIntro();
+  const target = document.querySelector(window.location.hash);
+  if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 100);
+} else {
+  document.body.style.overflow = 'hidden';
+}
 initCards();
 
 // Hero Swiper
