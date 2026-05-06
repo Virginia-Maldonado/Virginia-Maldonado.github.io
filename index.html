@@ -206,23 +206,20 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 
 /* SECTION SWIPERS */
 .sec-swiper-outer{overflow:hidden;margin-top:2.5rem}
-.sec-swiper{overflow:visible;margin-top:0;width:86%;margin-left:auto;margin-right:auto;position:relative}
+.sec-swiper{overflow:visible;margin-top:0;width:100%;position:relative}
 .sec-swiper .swiper-slide{transition:opacity .4s}
-.sec-swiper .swiper-slide:not(.swiper-slide-active){opacity:.45}
-.sec-swiper .swiper-slide img{width:100%;height:500px;object-fit:cover;display:block}
-.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:52px;height:52px;background:rgba(246,241,231,.97);border-radius:50%;color:var(--brown);--swiper-navigation-size:20px;box-shadow:0 2px 18px rgba(0,0,0,.22);opacity:1}
-.sec-swiper .swiper-button-prev:hover,.sec-swiper .swiper-button-next:hover{background:#fff;color:var(--terra)}
-#proceso .sec-swiper .swiper-button-prev,#proceso .sec-swiper .swiper-button-next{background:rgba(42,28,16,.92);color:var(--ochre)}
-#proceso .sec-swiper .swiper-button-prev:hover,#proceso .sec-swiper .swiper-button-next:hover{background:rgba(70,46,26,.97)}
-.sec-swiper .swiper-pagination{position:relative;bottom:auto;margin-top:1.4rem;text-align:center}
-.sec-swiper .swiper-pagination-bullet{width:8px;height:8px;background:var(--brown);opacity:.25;margin:0 5px;transition:opacity .3s,background .3s}
-.sec-swiper .swiper-pagination-bullet-active{background:var(--ochre);opacity:1}
-#proceso .sec-swiper .swiper-pagination-bullet{background:rgba(255,255,255,.3)}
+.sec-swiper .swiper-slide:not(.swiper-slide-active){opacity:.5}
+.sec-swiper .swiper-slide img{width:100%;height:480px;object-fit:cover;display:block;border-radius:8px;box-shadow:0 6px 28px rgba(0,0,0,.14);opacity:0;transition:opacity .55s ease}
+.sec-swiper .swiper-slide img.img-loaded{opacity:1}
+.sec-swiper .swiper-pagination{position:relative;bottom:auto;margin-top:1.5rem;text-align:center}
+.sec-swiper .swiper-pagination-bullet{width:7px;height:7px;background:var(--brown);opacity:.22;margin:0 5px;border-radius:50%;transition:opacity .3s,transform .3s}
+.sec-swiper .swiper-pagination-bullet-active{background:var(--ochre);opacity:1;transform:scale(1.25)}
+#proceso .sec-swiper .swiper-pagination-bullet{background:rgba(255,255,255,.35)}
 #proceso .sec-swiper .swiper-pagination-bullet-active{background:var(--ochre);opacity:1}
 .vein-swiper{overflow:hidden;width:100%;margin-left:0;margin-right:0}
-.vein-swiper .swiper-slide img{height:auto;aspect-ratio:3/4}
-@media(max-width:900px){.sec-swiper{width:82%}.sec-swiper .swiper-slide img{height:340px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
-@media(max-width:580px){.sec-swiper{width:78%}.sec-swiper .swiper-slide img{height:250px}.sec-swiper .swiper-button-prev,.sec-swiper .swiper-button-next{width:40px;height:40px;--swiper-navigation-size:15px}}
+.vein-swiper .swiper-slide img{height:auto;aspect-ratio:3/4;box-shadow:none}
+@media(max-width:900px){.sec-swiper .swiper-slide img{height:320px}.vein-swiper .swiper-slide img{height:auto;aspect-ratio:4/3}}
+@media(max-width:580px){.sec-swiper .swiper-slide img{height:230px}}
 
 /* LIGHTBOX */
 #lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(12,6,2,.96);align-items:center;justify-content:center}
@@ -423,9 +420,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-16.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-17.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-01.jfif" alt="" loading="lazy"></div>
-      </div>      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div></div>
   </div>
 </section>
@@ -456,9 +452,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.59.40%20AM%20%282%29.jpeg" alt="" loading="lazy"></div>
-      </div>      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div></div>
   </div>
 </section>
@@ -476,9 +471,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
           <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.05%20AM%20%281%29.jpeg" alt="Veintipico de bolsas" loading="lazy"></div>
             <div class="swiper-slide"><img src="PROCESO%20VIR/WhatsApp%20Image%202026-05-05%20at%209.58.06%20AM%20%281%29.jpeg" alt="" loading="lazy"></div>
-          </div>          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
       <div class="fade">
@@ -519,9 +513,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
-      </div>      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div></div>
   </div>
 </section>
@@ -685,35 +678,30 @@ const heroSwiper = new Swiper('#heroSwiper', {
   navigation: { prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' },
 });
 
-// Section Swipers — peek + pagination
+// Section Swipers — talsstudio style
 ['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
   new Swiper(el, {
     loop: true,
-    spaceBetween: 20,
-    navigation: {
-      prevEl: el.querySelector('.swiper-button-prev'),
-      nextEl: el.querySelector('.swiper-button-next'),
-    },
-    pagination: {
-      el: el.querySelector('.swiper-pagination'),
-      clickable: true,
-    },
+    slidesPerView: 1.2,
+    centeredSlides: true,
+    spaceBetween: 16,
+    pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
   });
 });
-// Veintipico swiper (constrained layout, sin peek)
+// Veintipico (layout fijo, sin peek)
 const veinEl = document.getElementById('swiperVein');
 if (veinEl) new Swiper(veinEl, {
   loop: true,
-  navigation: {
-    prevEl: veinEl.querySelector('.swiper-button-prev'),
-    nextEl: veinEl.querySelector('.swiper-button-next'),
-  },
-  pagination: {
-    el: veinEl.querySelector('.swiper-pagination'),
-    clickable: true,
-  },
+  slidesPerView: 1,
+  spaceBetween: 16,
+  pagination: { el: veinEl.querySelector('.swiper-pagination'), clickable: true },
+});
+// Lazy fade en imágenes de sección
+document.querySelectorAll('.sec-swiper img').forEach(img => {
+  if (img.complete) img.classList.add('img-loaded');
+  else img.addEventListener('load', () => img.classList.add('img-loaded'));
 });
 
 // Slide click → scroll to section
