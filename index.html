@@ -169,7 +169,10 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 @keyframes wave{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.6)}}
 
 /* INTRO OVERLAY */
-#intro{position:fixed;inset:0;z-index:999;background:url('fotos/1A.jpg') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .7s ease,visibility .7s ease}
+#intro{position:fixed;inset:0;z-index:999;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .7s ease,visibility .7s ease}
+#intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
+#intro::before{z-index:1}
+#intro>*:not(#intro-video){position:relative;z-index:2}
 #intro::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.4);z-index:-1}
 #intro.gone{opacity:0;visibility:hidden;pointer-events:none}
 .intro-eye{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.5rem}
@@ -294,6 +297,9 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
 
 <!-- INTRO -->
 <div id="intro">
+  <video id="intro-video" autoplay muted loop playsinline>
+    <source src="video-inicio.mp4" type="video/mp4">
+  </video>
   <p class="intro-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata</p>
   <h2 class="intro-title">Me Declaro<br>Paisaje</h2>
   <p class="intro-sub">María Virginia Maldonado</p>
