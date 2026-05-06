@@ -1,16 +1,18 @@
 # Proyecto: Virginia Maldonado — Me Declaro Paisaje
 
 ## URL de producción
-https://relaxed-nougat-036d70.netlify.app
-- Netlify site ID: `70899eae-566c-4ac9-9846-194b7c82d11b`
-- Título del navegador: **Virginia Maldonado**
-- Para cambiar el subdominio a `virginiamaldonado.netlify.app`: Netlify dashboard → Site configuration → Site details → Change site name (no se puede por CLI)
+https://virginia-maldonado.github.io/
+- Repo: https://github.com/Virginia-Maldonado/Virginia-Maldonado.github.io
+- Rama: `main`, carpeta raíz `/`
+- GitHub Pages activo (repo público)
 
 ## Deploy
 ```
-npx netlify-cli deploy --prod --dir "P:\.claude\virginia" --site 70899eae-566c-4ac9-9846-194b7c82d11b
+git -C "P:\.claude\virginia" add .
+git -C "P:\.claude\virginia" commit -m "descripción del cambio"
+git -C "P:\.claude\virginia" push
 ```
-El CLI guarda la sesión en `C:\Users\jose.ghueso\AppData\Roaming\netlify\Config\config.json`. Si expira, correr `npx netlify-cli login` primero.
+GitHub Pages publica automáticamente al hacer push a `main`. Puede demorar 1-2 minutos.
 
 ---
 
