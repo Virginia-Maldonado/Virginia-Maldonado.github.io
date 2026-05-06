@@ -67,6 +67,8 @@ body{font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;color:var(--i
 .hs-name{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.72}
 .swiper-button-prev,.swiper-button-next{--swiper-navigation-size:16px;color:rgba(255,255,255,.5);width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;transition:color .3s,border-color .3s,background .3s}
 .swiper-button-prev:hover,.swiper-button-next:hover{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.07)}
+.sec-arrow{background:rgba(246,241,231,.92)!important;border:1px solid rgba(107,85,64,.3)!important;border-radius:50%!important;width:40px!important;height:40px!important;color:var(--brown)!important;--swiper-navigation-size:13px;backdrop-filter:blur(6px);transition:background .3s,border-color .3s,color .3s!important}
+.sec-arrow:hover{background:var(--cream2)!important;border-color:var(--brown)!important;color:var(--ink)!important}
 .hero-caret{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.55rem;cursor:pointer;opacity:.6;transition:opacity .3s;z-index:10}
 .hero-caret:hover{opacity:1}
 .hero-caret span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#fff}
@@ -435,6 +437,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-01.jfif" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev sec-arrow"></div>
+      <div class="swiper-button-next sec-arrow"></div>
     </div></div>
   </div>
 </section>
@@ -467,6 +471,8 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev sec-arrow"></div>
+      <div class="swiper-button-next sec-arrow"></div>
     </div></div>
   </div>
 </section>
@@ -656,12 +662,14 @@ const heroSwiper = new Swiper('#heroSwiper', {
 ['swiperMustra','swiperSala2','swiperProceso'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
+  const hasNav = el.querySelector('.swiper-button-prev');
   new Swiper(el, {
     loop: true,
     slidesPerView: 1.2,
     centeredSlides: true,
     spaceBetween: 16,
     pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+    navigation: hasNav ? { prevEl: el.querySelector('.swiper-button-prev'), nextEl: el.querySelector('.swiper-button-next') } : false,
   });
 });
 const veinEl = document.getElementById('swiperVein');
