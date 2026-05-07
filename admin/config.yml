@@ -2,8 +2,7 @@ backend:
   name: github
   repo: Virginia-Maldonado/Virginia-Maldonado.github.io
   branch: main
-  auth_type: pkce
-  app_id: Ov23liaZSfNUPdiEFmjl
+  base_url: REEMPLAZAR_CON_URL_VERCEL
 
 media_folder: fotos
 public_folder: fotos
