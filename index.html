@@ -359,7 +359,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         </div>
       </div>
       <div class="swiper-slide hero-slide" data-target="#sala2">
-        <div class="hs-bg" style="background-image:url('fotos/foto-02.jpeg')"></div>
+        <div class="hs-bg" style="background-image:url('fotos/foto-02.jpg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
           <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
@@ -368,7 +368,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         </div>
       </div>
       <div class="swiper-slide hero-slide" data-target="#veintipico">
-        <div class="hs-bg" style="background-image:url('fotos/foto-03.jpeg')"></div>
+        <div class="hs-bg" style="background-image:url('fotos/foto-03.jpg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
           <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
@@ -377,7 +377,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         </div>
       </div>
       <div class="swiper-slide hero-slide" data-target="#proceso">
-        <div class="hs-bg" style="background-image:url('fotos/foto-04.jpeg')"></div>
+        <div class="hs-bg" style="background-image:url('fotos/foto-04.jpg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
           <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
@@ -386,7 +386,7 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
         </div>
       </div>
       <div class="swiper-slide hero-slide" data-target="#artista">
-        <div class="hs-bg" style="background-image:url('fotos/foto-05.jpeg')"></div>
+        <div class="hs-bg" style="background-image:url('fotos/foto-05.jpg')"></div>
         <div class="hero-veil"></div>
         <div class="hs-content">
           <p class="hs-eye">MACLA – Museo de Arte Contemporáneo Latinoamericano – La Plata &thinsp;·&thinsp; 2024</p>
@@ -753,18 +753,17 @@ window.addEventListener('hashchange',()=>setTimeout(revealInView,700));
 
 // Lightbox
 const imgs = [
-  'fotos/foto-02.jpeg',
-  'fotos/foto-06.jpeg',
-  'fotos/foto-06.jpeg',
-  'fotos/foto-07.jpeg',
-  'fotos/foto-08.jpeg',
-  'fotos/foto-10.jpeg',
-  'fotos/foto-11.jpeg',
-  'fotos/foto-13.jpeg',
-  'fotos/foto-14.jpeg',
-  'fotos/foto-15.jpeg',
-  'fotos/foto-16.jpeg',
-  'fotos/foto-17.jpeg',
+  'fotos/foto-02.jpg',
+  'fotos/foto-06.jpg',
+  'fotos/foto-07.jpg',
+  'fotos/foto-08.jpg',
+  'fotos/foto-10.jpg',
+  'fotos/foto-11.jpg',
+  'fotos/foto-13.jpg',
+  'fotos/foto-14.jpg',
+  'fotos/foto-15.jpg',
+  'fotos/foto-16.jpg',
+  'fotos/foto-17.jpg',
   'fotos/foto-01.jpg',
 ];
 let cur=0;
@@ -779,6 +778,21 @@ document.addEventListener('keydown', e => {
   if(e.key==='ArrowLeft') moveLb(-1);
   if(e.key==='ArrowRight') moveLb(1);
 });
+
+// CMS content: load bio and veintipico from _data/ if edited via admin
+(function loadCmsContent() {
+  function mdToHtml(text) {
+    return text.trim().split(/\n\n+/).map(p =>
+      '<p>' + p.replace(/\*([^*]+)\*/g, '<em>$1</em>') + '</p>'
+    ).join('');
+  }
+  fetch('_data/bio.md').then(r => r.ok ? r.text() : null).then(md => {
+    if (md) document.querySelector('.art-bio').innerHTML = mdToHtml(md);
+  }).catch(() => {});
+  fetch('_data/veintipico.md').then(r => r.ok ? r.text() : null).then(md => {
+    if (md) document.querySelector('.vein-text').innerHTML = mdToHtml(md);
+  }).catch(() => {});
+})();
 </script>
 </body>
 </html>

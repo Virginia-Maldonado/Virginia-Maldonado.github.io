@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: Virginia-Maldonado/Virginia-Maldonado.github.io
+  branch: main
+  auth_type: pkce
+  app_id: REEMPLAZAR_CON_CLIENT_ID
+
+media_folder: fotos
+public_folder: fotos
+locale: es
+
+collections:
+  - name: "fotos"
+    label: "Fotos de la muestra"
+    folder: "_data/fotos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Imagen", name: "foto", widget: "image" }
+      - { label: "Descripción", name: "alt", widget: "string" }
+
+  - name: "textos"
+    label: "Textos del sitio"
+    files:
+      - label: "Bio de la artista"
+        name: "bio"
+        file: "_data/bio.md"
+        fields:
+          - { label: "Biografía", name: "body", widget: "markdown" }
+      - label: "Texto Veintipico de bolsas"
+        name: "veintipico"
+        file: "_data/veintipico.md"
+        fields:
+          - { label: "Texto de la obra", name: "body", widget: "markdown" }
