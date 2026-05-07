@@ -3,7 +3,7 @@ backend:
   repo: Virginia-Maldonado/Virginia-Maldonado.github.io
   branch: main
   auth_type: pkce
-  app_id: REEMPLAZAR_CON_CLIENT_ID
+  app_id: Ov23liaZSfNUPdiEFmjl
 
 media_folder: fotos
 public_folder: fotos
