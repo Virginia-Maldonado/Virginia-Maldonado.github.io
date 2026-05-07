@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: Virginia-Maldonado/Virginia-Maldonado.github.io
+  name: git-gateway
   branch: main
-  base_url: REEMPLAZAR_CON_URL_VERCEL
 
 media_folder: fotos
 public_folder: fotos
