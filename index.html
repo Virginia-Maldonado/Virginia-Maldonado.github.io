@@ -425,17 +425,17 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <p class="curador-line fade">Cecilia Canepa – Curadora</p>
     <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperMustra">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="fotos/foto-02.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-06.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-07.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-08.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-10.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-11.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-13.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-14.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-15.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-16.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-17.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-02.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-06.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-07.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-08.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-10.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-11.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-13.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-14.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-15.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-16.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-17.jpg" alt="" loading="lazy"></div>
         <div class="swiper-slide"><img src="fotos/foto-01.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
@@ -518,12 +518,12 @@ footer{background:var(--ink);padding:2rem 2.5rem;display:flex;justify-content:sp
     <p class="proc-sub fade">Moras, yerba, cáscaras, polvo de ocre. Todo lo que la tierra da se convierte en color.</p>
     <div class="sec-swiper-outer"><div class="swiper sec-swiper" id="swiperProceso">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="fotos/foto-03.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-05.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-09.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-12.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-04.jpeg" alt="" loading="lazy"></div>
-        <div class="swiper-slide"><img src="fotos/foto-18.jpeg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-03.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-05.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-09.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-12.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-04.jpg" alt="" loading="lazy"></div>
+        <div class="swiper-slide"><img src="fotos/foto-18.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev sec-arrow"></div>
@@ -709,8 +709,9 @@ const heroSwiper = new Swiper('#heroSwiper', {
   const el = document.getElementById(id);
   if (!el) return;
   const hasNav = el.querySelector('.swiper-button-prev');
+  const slideCount = el.querySelectorAll('.swiper-slide').length;
   new Swiper(el, {
-    loop: true,
+    loop: slideCount >= 5,
     slidesPerView: 1.2,
     centeredSlides: true,
     spaceBetween: 16,
